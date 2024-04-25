@@ -128,7 +128,7 @@ namespace GameZone.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategorId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Cover")
@@ -188,7 +188,7 @@ namespace GameZone.Migrations
                         .IsRequired();
 
                     b.HasOne("GameZone.Models.Game", "Game")
-                        .WithMany("Device")
+                        .WithMany("Devices")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -200,12 +200,12 @@ namespace GameZone.Migrations
 
             modelBuilder.Entity("GameZone.Models.Category", b =>
                 {
-                    b.Navigation("Game");
+                    b.Navigation("Games");
                 });
 
             modelBuilder.Entity("GameZone.Models.Game", b =>
                 {
-                    b.Navigation("Device");
+                    b.Navigation("Devices");
                 });
 #pragma warning restore 612, 618
         }

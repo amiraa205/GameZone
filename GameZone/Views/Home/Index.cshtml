@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-// Alert
+
 @if (!Model.Any())
 {
     <div class="alert alert-warning mt-5">
@@ -14,7 +14,7 @@
 else
 {
     <div class="row mt-5">
-        // to ensure data saved inte db correct
+        
         @foreach(var game in Model)
         {
             <div class="col-lg-4 col-md-6">
